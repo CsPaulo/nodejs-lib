@@ -1,16 +1,4 @@
-const fs = require("fs");
-
-const caminhoArquivo = process.argv[2];
-
-fs.readFile(caminhoArquivo, "utf-8", (erro, texto) => {
-  if (erro) {
-    console.error("Erro ao ler o arquivo", erro);
-    return;
-  }
-  contaPalavras(texto);
-});
-
-function contaPalavras(texto) {
+export function contaPalavras(texto) {
   const listaParagrafos = extraiParagrafos(texto);
   const contagemParagrafos = listaParagrafos.flatMap((paragrafo) => {
     if (!paragrafo) return [];
