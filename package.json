@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/CsPaulo/nodejs-lib/issues"
   },
-  "homepage": "https://github.com/CsPaulo/nodejs-lib#readme"
+  "homepage": "https://github.com/CsPaulo/nodejs-lib#readme",
+  "dependencies": {
+    "commander": "^13.1.0"
+  }
 }
