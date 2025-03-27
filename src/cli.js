@@ -4,6 +4,7 @@ import trataErros from "./erros/funcoesErro.js";
 import { contaPalavras } from "./index.js";
 import { montaSaidaArquivo } from "./helpers.js";
 import { Command } from "commander";
+import chalk from "chalk";
 
 const program = new Command();
 program
@@ -15,7 +16,7 @@ program
     const { texto, destino } = options;
 
     if (!texto || !destino) {
-      console.error("erro: favor informar o caminho do arquivo e o destino");
+      console.error(chalk.red("erro: favor informar o caminho do arquivo e o destino"));
       program.help();
       return;
     }
@@ -25,9 +26,9 @@ program
 
     try {
       processaArquivo(caminhoTexto, caminhoDestino);
-      console.log("Texto processado com sucesso");
+      console.log(chalk.green("Texto processado com sucesso"));
     } catch (erro) {
-      console.error("Ocorreu um erro no processamento", erro);
+      console.error(chalk.red("Ocorreu um erro no processamento"), erro);
     }
   });
 
@@ -50,7 +51,7 @@ async function criaESalvaArquivo(listaPalavras, endereco) {
   const textoPalavras = montaSaidaArquivo(listaPalavras);
   try {
     await fs.promises.writeFile(arquivoNovo, textoPalavras);
-    console.log("arquivo criado");
+    console.log(chalk.green("arquivo criado"));
   } catch (erro) {
     throw erro;
   }

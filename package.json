@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/CsPaulo/nodejs-lib#readme",
   "dependencies": {
+    "chalk": "^5.4.1",
     "commander": "^13.1.0"
   }
 }
